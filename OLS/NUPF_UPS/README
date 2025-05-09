@@ -1,0 +1,2 @@
+Compile code with: g++ -std=c++17 nupf_ups.cpp -lOpenCL -lm -lrt -o nupf_ups
+Check correctness with: python3 check_conv.py 

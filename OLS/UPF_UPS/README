@@ -1,0 +1,2 @@
+Compile code with: g++ -std=c++17 upf_ups.cpp -lOpenCL -lm -lrt -o upf_ups
+Check correctness with: python3 check_conv.py 
