@@ -11,6 +11,7 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <iomanip>
 
 constexpr unsigned N_SAMPLES = 8192;
 constexpr unsigned L = 256;
