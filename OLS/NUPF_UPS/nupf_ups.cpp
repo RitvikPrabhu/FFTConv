@@ -13,11 +13,11 @@
 #include <vector>
 
 constexpr unsigned N_SAMPLES = 8192;
-constexpr unsigned B = 256;  
+constexpr unsigned B = 128;  
 
 constexpr unsigned NUM_SEGMENTS = 3;
-constexpr unsigned L_SIZES[NUM_SEGMENTS] = {256, 512, 1024};    
-constexpr unsigned BLOCK_SIZES[NUM_SEGMENTS] = {256, 512, 1024}; 
+constexpr unsigned L_SIZES[NUM_SEGMENTS] = {128, 256, 512};    
+constexpr unsigned BLOCK_SIZES[NUM_SEGMENTS] = {128, 256, 512}; 
 constexpr unsigned P_VALUES[NUM_SEGMENTS] = {2, 2, 2};         
 
 constexpr unsigned FIR_LEN = 933;
@@ -149,6 +149,7 @@ int main() {
     size_t fftDim[] = {FFT_SIZES[segIdx]};
     clfftCreateDefaultPlan(&planForwards[segIdx], ctx, CLFFT_1D, fftDim);
     clfftCreateDefaultPlan(&planInverses[segIdx], ctx, CLFFT_1D, fftDim);
+    clfftSetPlanScale(planInverses[i], CLFFT_BACKWARD, 1.0f / static_cast<float>(FFT_SIZES[i]));
     clfftSetPlanPrecision(planForwards[segIdx], CLFFT_SINGLE);
     clfftSetPlanPrecision(planInverses[segIdx], CLFFT_SINGLE);
     clfftSetLayout(planForwards[segIdx], CLFFT_REAL, CLFFT_HERMITIAN_INTERLEAVED);
