@@ -23,7 +23,7 @@ constexpr unsigned P_VALUES[NUM_SEGMENTS] = {2, 2, 2};
 constexpr unsigned FIR_LEN = 933;
 
 constexpr unsigned TOTAL_PARTS = P_VALUES[0] + P_VALUES[1] + P_VALUES[2];
-constexpr unsigned FFT_SIZES[NUM_SEGMENTS] = {512, 1024, 2048}; 
+constexpr unsigned FFT_SIZES[NUM_SEGMENTS] = {256, 512, 1024}; 
 constexpr unsigned SPEC_SIZES[NUM_SEGMENTS] = {
     FFT_SIZES[0]/2 + 1,
     FFT_SIZES[1]/2 + 1,
