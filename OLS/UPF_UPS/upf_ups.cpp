@@ -63,7 +63,6 @@ static void refConv(const std::vector<double> &x, const std::vector<double> &h,
 }
 
 static const char *kSrc = R"CLC(
-// Complex multiplication kernel
 __kernel void freqMult(__global const float2* input_spectrum,
                        __global const float2* filter_spectrum,
                        __global float2* output_spectrum,
@@ -73,11 +72,9 @@ __kernel void freqMult(__global const float2* input_spectrum,
     float2 a = input_spectrum[gid];
     float2 b = filter_spectrum[filter_offset + gid];
     
-    // Complex multiplication: (a+bi)*(c+di) = (ac-bd) + (ad+bc)i
     output_spectrum[gid] = (float2)(a.x*b.x - a.y*b.y, a.x*b.y + a.y*b.x);
 }
 
-// Accumulate in frequency domain
 __kernel void freqAccum(__global float2* accum_spectrum,
                         __global const float2* part_spectrum)
 {
