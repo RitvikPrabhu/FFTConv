@@ -28,7 +28,7 @@ t = np.arange(len(ref))
 plt.plot(t, ref, label="SciPy", lw=1)
 plt.plot(t[: len(gpu)], gpu, "--", label="GPU")
 
-plt.xlim(0, 4096)
+plt.xlim(0, 2000)
 plt.xlabel("Sample index")
 plt.ylabel("Amplitude")
 plt.title("NUPF-UPS convolution comparison")
