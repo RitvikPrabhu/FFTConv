@@ -149,7 +149,7 @@ int main() {
     size_t fftDim[] = {FFT_SIZES[segIdx]};
     clfftCreateDefaultPlan(&planForwards[segIdx], ctx, CLFFT_1D, fftDim);
     clfftCreateDefaultPlan(&planInverses[segIdx], ctx, CLFFT_1D, fftDim);
-    clfftSetPlanScale(planInverses[i], CLFFT_BACKWARD, 1.0f / static_cast<float>(FFT_SIZES[i]));
+    clfftSetPlanScale(planInverses[segIdx], CLFFT_BACKWARD, 1.0f / static_cast<float>(FFT_SIZES[i]));
     clfftSetPlanPrecision(planForwards[segIdx], CLFFT_SINGLE);
     clfftSetPlanPrecision(planInverses[segIdx], CLFFT_SINGLE);
     clfftSetLayout(planForwards[segIdx], CLFFT_REAL, CLFFT_HERMITIAN_INTERLEAVED);
