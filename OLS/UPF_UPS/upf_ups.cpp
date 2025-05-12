@@ -31,9 +31,9 @@ static inline double now_ns() {
 }
 
 static void dump(const char *fn, const std::vector<float> &v) {
-  std::ofstream(fn, std::ios::binary)
-      .write(reinterpret_cast<const char *>(v.data()),
-             v.size() * sizeof(float));
+  std::ofstream out(fn);          
+for (float f : v)
+    out << std::setprecision(8) << f << '\n';
 }
 
 static void hannLPF(std::vector<float> &h, float fc_norm) {
